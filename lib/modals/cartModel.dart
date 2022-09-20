@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import"package:flutter_riverpod/flutter_riverpod.dart";
+import "package:flutter_riverpod/flutter_riverpod.dart";
 
-
-final cartProvider = ChangeNotifierProvider((ref)=> CartProvider());
-  
+final cartProvider = ChangeNotifierProvider((ref) => CartProvider());
 
 class CartModel {
   int? id;
@@ -19,9 +17,7 @@ class CartModel {
 }
 
 class CartProvider extends ChangeNotifier {
-  final List<CartModel> _cart = [
-   
-  ];
+  final List<CartModel> _cart = [];
 
   List<CartModel> get cart => _cart;
 

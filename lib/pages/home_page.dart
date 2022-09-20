@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:flutter_test_app1/modals/cartModel.dart';
 import 'package:flutter_test_app1/modals/num_model.dart';
+import 'package:flutter_test_app1/pages/bottom_bar_page.dart';
 import 'package:go_router/go_router.dart';
 
 class homepage extends StatefulWidget {
@@ -15,20 +16,22 @@ class homepage extends StatefulWidget {
 
 class _homepageState extends State<homepage> {
   final numberIndex = 0;
-  int ?price;
-  int ?number;
-  int ?id;
-  int ?index;
+  String search = '';
+  TextEditingController searchController = TextEditingController();
+  int? price;
+  int? number;
+  int? id;
+  int? index;
   @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
         final numberGetter = ref.watch(numProvider);
-        final cartGetter=ref.watch(cartProvider);
+        final cartGetter = ref.watch(cartProvider);
         return Scaffold(
           appBar: AppBar(
             title: Text('VIPNOSTORE'),
-            backgroundColor: Colors.grey,
+            backgroundColor: Color.fromARGB(255, 66, 66, 66),
             actions: [
               IconButton(
                   onPressed: () {
@@ -46,6 +49,7 @@ class _homepageState extends State<homepage> {
             ],
           ),
           drawer: Drawer(
+              child: SingleChildScrollView(
             child: Column(children: [
               Image.asset(
                 'assets/images/drlogo.png',
@@ -60,10 +64,155 @@ class _homepageState extends State<homepage> {
                 title: Text("Contact us"),
                 onTap: () {},
               ),
-              ListTile(
+              ExpansionTile(
                 leading: Icon(Icons.filter_alt_sharp),
                 title: Text("filter"),
-                onTap: () {},
+                children: [
+                  Padding(padding: EdgeInsets.all(0)),
+                  ListTile(
+                    title: Text('All'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = '';
+                    },
+                  ),
+                  ListTile(
+                    title: Text('000 Number'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = '000';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('0000 Number'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = '0000';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('00AB 00CD'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = '00AB 00CD';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('850000 xyxy'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = '850000 xyxy';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('108 108 Number'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = '108 108';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('1008'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = '1008';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('AAB AAB XY XY'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'AAB AAB XY XY';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('AB XXX CD YYY'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'AB XXX CD YYY';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('ABC ABC'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'ABC ABC';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('AB00 CD00'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'AB00 CD00';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('ABAB CDCD XY'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'ABAB CDCD XY';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('Middle Hexa'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'Middle Hexa';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('Penta Ending'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'Penta Ending';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('Starting xxxx'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'Starting xxxx';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('XY ABC ABC XY'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'XY ABC ABC XY';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('XY XY XY Starting'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'XY XY XY Ending';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                  ListTile(
+                    title: Text('XY ABAB CDCD'),
+                    visualDensity: VisualDensity(vertical: -4),
+                    onTap: () {
+                      search = 'XY ABAB CDCD';
+                      Navigator.of(context).pop();
+                    },
+                  ),
+                ],
               ),
               ListTile(
                 leading: Icon(Icons.logout),
@@ -73,7 +222,7 @@ class _homepageState extends State<homepage> {
                 },
               ),
             ]),
-          ),
+          )),
           body: Padding(
               padding: const EdgeInsets.all(10),
               child: SingleChildScrollView(
@@ -144,35 +293,47 @@ class _homepageState extends State<homepage> {
                     itemCount: numberGetter.number.length,
                     itemBuilder: (BuildContext context, int index) {
                       // index=index;
-                      number=numberGetter.number[index].number;
-                      price=numberGetter.number[index].price;
-                      id=numberGetter.number[index].id;
+                      number = numberGetter.number[index].number;
+                      price = numberGetter.number[index].price;
+                      id = numberGetter.number[index].id;
                       // number=numberGetter.number[index].number;
 
-
-                      return Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 35, vertical: 25),
-                        color: Color.fromARGB(255, 219, 224, 146),
-                        height: 130,
-                        width: double.infinity,
+                      return Card(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15)),
+                        color: Colors.grey,
                         child: Column(
                           children: [
-                            Text(
-                              numberGetter.number[index].number.toString(),
-                              style: TextStyle(fontSize: 20),
+                            Row(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Price  ₹${numberGetter.number[index].price.toString()}",
+                                    style: TextStyle(
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ),
+                              ],
                             ),
                             Text(
-                             "₹ ${numberGetter.number[index].price.toString()}",
-                              style: TextStyle(fontSize: 20),
+                              "# ${numberGetter.number[index].number.toString()}",
+                              style: TextStyle(
+                                fontSize: 25,
+                                color: Colors.white,
+                              ),
                             ),
                             SizedBox(
                               height: 8,
                             ),
                             InkWell(
                               onTap: () {
-                          cartGetter.addNumber(id=numberGetter.number[index].id, number=numberGetter.number[index].number, price=numberGetter.number[index].price,);
-
+                                cartGetter.addNumber(
+                                  id = numberGetter.number[index].id,
+                                  number = numberGetter.number[index].number,
+                                  price = numberGetter.number[index].price,
+                                );
                                 context.go('/cart');
                               },
                               child: Column(
@@ -199,15 +360,20 @@ class _homepageState extends State<homepage> {
                                     ],
                                   ),
                                   SizedBox(
-                                    height: 8,
+                                    height: 5,
                                   ),
                                 ],
                               ),
                             ),
                             InkWell(
                               onTap: () {
-                                cartGetter.addNumber(id=numberGetter.number[index].id, number=numberGetter.number[index].number, price=numberGetter.number[index].price,);
-                                context.go('/cart');
+                                cartGetter.addNumber(
+                                  id = numberGetter.number[index].id,
+                                  number = numberGetter.number[index].number,
+                                  price = numberGetter.number[index].price,
+                                );
+                                numberGetter.removeNumber(
+                                    numberGetter.number[index].id);
                               },
                               child: Column(
                                 children: [

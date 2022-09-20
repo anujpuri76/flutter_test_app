@@ -2,10 +2,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test_app1/router.dart';
 import 'package:flutter/material.dart';
 
-
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
- 
+
   runApp(
     ProviderScope(
       overrides: [],
